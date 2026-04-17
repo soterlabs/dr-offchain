@@ -1,0 +1,25 @@
+[project]
+name = "dr-offchain"
+version = "0.1.0"
+description = "Off-chain replication of Spark Distribution Rewards for Skybase-captured deposits"
+requires-python = ">=3.11"
+dependencies = [
+  "pandas>=2.0",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=7.0"]
+
+[project.scripts]
+dr-offchain = "dr_offchain.cli:main"
+
+[build-system]
+requires = ["setuptools>=69"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+testpaths = ["tests"]
