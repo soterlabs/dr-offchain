@@ -1,4 +1,4 @@
-"""Unit tests for FIFO eligibility + TW integration."""
+"""Unit tests for sticky eligibility + TW integration."""
 from __future__ import annotations
 
 import math
@@ -8,84 +8,116 @@ import pandas as pd
 
 from dr_offchain.loader import SyntheticReferral
 from dr_offchain.pipeline import (
-    OutflowEvent,
+    BalanceEvent,
     apply_rewards,
-    build_eligibility_trajectory,
+    build_sticky_trajectory,
     compute_daily_tw,
+    monthly_rollup_by_scope,
 )
 
 
 UTC = timezone.utc
 
 
-def _ref(ts, depositor, scope, amount):
-    return SyntheticReferral(ts=ts, depositor=depositor, dest_kind="cowswap",
-                             scope_id=scope, amount=amount, tx_hash="0x00")
+def _ref(ts, depositor, scope, amount, dest_kind="cowswap", tx_hash="0x00"):
+    return SyntheticReferral(ts=ts, depositor=depositor, dest_kind=dest_kind,
+                             scope_id=scope, amount=amount, tx_hash=tx_hash)
 
 
-def _out(ts, depositor, scope, amount):
-    return OutflowEvent(ts=ts, depositor=depositor, scope_id=scope,
-                        amount=amount, tx_hash="0x00")
+def _evt(ts, depositor, scope, direction, amount, tx_hash="0x00"):
+    return BalanceEvent(ts=ts, depositor=depositor, scope_id=scope,
+                        direction=direction, amount=amount, tx_hash=tx_hash)
 
 
-# ---------------- FIFO eligibility ----------------
+# ---------------- Sticky eligibility ----------------
 
 
-def test_fifo_simple_deposit():
+def test_sticky_single_tagged_inflow_marks_balance_eligible():
     t = datetime(2026, 3, 10, 0, 0, tzinfo=UTC)
-    traj = build_eligibility_trajectory([_ref(t, "0xaa", "s1", 100.0)], [])
+    traj = build_sticky_trajectory([_ref(t, "0xaa", "s1", 100.0)], [])
     assert traj[("0xaa", "s1")] == [(t, 100.0)]
 
 
-def test_fifo_outflow_burns():
-    t1 = datetime(2026, 3, 10, 12, 0, tzinfo=UTC)
-    t2 = datetime(2026, 3, 11, 12, 0, tzinfo=UTC)
-    traj = build_eligibility_trajectory(
+def test_sticky_untagged_inflow_before_tag_has_zero_eligible():
+    # Pre-tag: balance accrues but eligible stays 0 until first tag fires.
+    t1 = datetime(2026, 3, 10, 0, 0, tzinfo=UTC)
+    t2 = datetime(2026, 3, 11, 0, 0, tzinfo=UTC)
+    traj = build_sticky_trajectory(
+        [_ref(t2, "0xaa", "s1", 50.0)],
+        [_evt(t1, "0xaa", "s1", "in", 100.0)],
+    )
+    # t1: untagged inflow, balance=100 but eligible=0 (not yet tagged).
+    # t2: tagged inflow, balance=150, latch fires, eligible=150.
+    assert traj[("0xaa", "s1")] == [(t1, 0.0), (t2, 150.0)]
+
+
+def test_sticky_untagged_inflow_after_tag_grows_eligible():
+    # Pure sticky: once tagged, every subsequent inflow (tagged or not)
+    # increases eligible balance.
+    t1 = datetime(2026, 3, 10, 0, 0, tzinfo=UTC)
+    t2 = datetime(2026, 3, 11, 0, 0, tzinfo=UTC)
+    traj = build_sticky_trajectory(
         [_ref(t1, "0xaa", "s1", 100.0)],
-        [_out(t2, "0xaa", "s1", 60.0)],
+        [_evt(t2, "0xaa", "s1", "in", 40.0)],
+    )
+    assert traj[("0xaa", "s1")] == [(t1, 100.0), (t2, 140.0)]
+
+
+def test_sticky_outflow_reduces_balance():
+    t1 = datetime(2026, 3, 10, 0, 0, tzinfo=UTC)
+    t2 = datetime(2026, 3, 11, 0, 0, tzinfo=UTC)
+    traj = build_sticky_trajectory(
+        [_ref(t1, "0xaa", "s1", 100.0)],
+        [_evt(t2, "0xaa", "s1", "out", 60.0)],
     )
     assert traj[("0xaa", "s1")] == [(t1, 100.0), (t2, 40.0)]
 
 
-def test_fifo_outflow_clamps_at_zero():
-    t1 = datetime(2026, 3, 10, 12, 0, tzinfo=UTC)
-    t2 = datetime(2026, 3, 11, 12, 0, tzinfo=UTC)
-    traj = build_eligibility_trajectory(
+def test_sticky_outflow_clamps_at_zero():
+    t1 = datetime(2026, 3, 10, 0, 0, tzinfo=UTC)
+    t2 = datetime(2026, 3, 11, 0, 0, tzinfo=UTC)
+    traj = build_sticky_trajectory(
         [_ref(t1, "0xaa", "s1", 100.0)],
-        [_out(t2, "0xaa", "s1", 150.0)],
+        [_evt(t2, "0xaa", "s1", "out", 150.0)],
     )
     assert traj[("0xaa", "s1")] == [(t1, 100.0), (t2, 0.0)]
 
 
-def test_fifo_multiple_deposits_stack():
-    t1 = datetime(2026, 3, 10, 0, 0, tzinfo=UTC)
-    t2 = datetime(2026, 3, 15, 0, 0, tzinfo=UTC)
-    t3 = datetime(2026, 3, 20, 0, 0, tzinfo=UTC)
-    traj = build_eligibility_trajectory(
-        [_ref(t1, "0xaa", "s1", 100.0), _ref(t2, "0xaa", "s1", 50.0)],
-        [_out(t3, "0xaa", "s1", 120.0)],
-    )
-    assert traj[("0xaa", "s1")] == [(t1, 100.0), (t2, 150.0), (t3, 30.0)]
-
-
-def test_fifo_outflow_before_any_deposit_is_noop():
+def test_sticky_latch_persists_through_zero_balance():
+    # Tag, drain to 0, then untagged inflow — attribution remains, so the
+    # regrown balance is fully eligible (pure sticky).
     t1 = datetime(2026, 3, 10, 0, 0, tzinfo=UTC)
     t2 = datetime(2026, 3, 11, 0, 0, tzinfo=UTC)
-    traj = build_eligibility_trajectory(
-        [_ref(t2, "0xaa", "s1", 100.0)],
-        [_out(t1, "0xaa", "s1", 50.0)],
+    t3 = datetime(2026, 3, 12, 0, 0, tzinfo=UTC)
+    traj = build_sticky_trajectory(
+        [_ref(t1, "0xaa", "s1", 100.0)],
+        [_evt(t2, "0xaa", "s1", "out", 100.0),
+         _evt(t3, "0xaa", "s1", "in", 25.0)],
     )
-    assert traj[("0xaa", "s1")] == [(t1, 0.0), (t2, 100.0)]
+    assert traj[("0xaa", "s1")] == [(t1, 100.0), (t2, 0.0), (t3, 25.0)]
 
 
-def test_fifo_independent_scopes():
+def test_sticky_outflow_before_any_tag_only_reduces_balance():
+    # Pre-tag outflow clamps balance but doesn't affect eligible (still 0).
+    # Tagged inflow at t3 then arms the latch on whatever balance remains.
+    t1 = datetime(2026, 3, 10, 0, 0, tzinfo=UTC)
+    t2 = datetime(2026, 3, 11, 0, 0, tzinfo=UTC)
+    t3 = datetime(2026, 3, 12, 0, 0, tzinfo=UTC)
+    traj = build_sticky_trajectory(
+        [_ref(t3, "0xaa", "s1", 30.0)],
+        [_evt(t1, "0xaa", "s1", "in", 100.0),
+         _evt(t2, "0xaa", "s1", "out", 40.0)],
+    )
+    # t1: bal=100 elig=0; t2: bal=60 elig=0; t3: bal=90 elig=90.
+    assert traj[("0xaa", "s1")] == [(t1, 0.0), (t2, 0.0), (t3, 90.0)]
+
+
+def test_sticky_independent_scopes():
     t = datetime(2026, 3, 10, 0, 0, tzinfo=UTC)
-    traj = build_eligibility_trajectory(
+    traj = build_sticky_trajectory(
         [_ref(t, "0xaa", "s1", 100.0), _ref(t, "0xaa", "s2", 200.0)],
-        [_out(t, "0xaa", "s1", 30.0)],
+        [_evt(t, "0xaa", "s1", "out", 30.0)],
     )
-    # FIFO burn applies only to s1
-    assert ("0xaa", "s1") in traj and ("0xaa", "s2") in traj
     assert traj[("0xaa", "s1")][-1][1] == 70.0
     assert traj[("0xaa", "s2")][-1][1] == 200.0
 
@@ -145,7 +177,6 @@ def test_reward_rate_2025_vs_2026_boundary():
     df = apply_rewards(df)
     r2025 = df[df["dt"] == date(2025, 6, 1)].iloc[0]["tw_reward"]
     r2026 = df[df["dt"] == date(2026, 6, 1)].iloc[0]["tw_reward"]
-    # tw_reward with tw_eligible=365 equals reward_per = 365*(exp(ln(1+APY)/365)-1).
     expected_2025 = 365.0 * (math.exp(math.log(1.006) / 365.0) - 1.0)
     expected_2026 = 365.0 * (math.exp(math.log(1.005) / 365.0) - 1.0)
     assert math.isclose(r2025, expected_2025, rel_tol=1e-9)
@@ -157,3 +188,31 @@ def test_empty_trajectory_yields_empty_df():
     daily = compute_daily_tw({}, date(2026, 3, 10))
     assert daily.empty
     assert list(daily.columns) == ["dt", "depositor", "scope_id", "tw_eligible"]
+
+
+# ---------------- Monthly rollup ----------------
+
+
+def test_monthly_rollup_by_scope_wide_schema():
+    df = pd.DataFrame([
+        {"dt": date(2026, 3, 1), "depositor": "0xaa",
+         "scope_id": "wallet_usds:0xaa", "tw_eligible": 100.0},
+        {"dt": date(2026, 3, 1), "depositor": "0xaa",
+         "scope_id": "morpho:0xv", "tw_eligible": 300.0},
+    ])
+    df = apply_rewards(df)
+    wide = monthly_rollup_by_scope(df)
+    assert list(wide.columns) == ["month", "wallet_usds_dr_usd",
+                                  "morpho_dr_usd", "total_dr_usd"]
+    row = wide.iloc[0]
+    assert math.isclose(row["total_dr_usd"],
+                        row["wallet_usds_dr_usd"] + row["morpho_dr_usd"])
+
+
+def test_monthly_rollup_empty_yields_expected_columns():
+    empty = pd.DataFrame(columns=["dt", "depositor", "scope_id", "tw_eligible",
+                                  "reward_per", "tw_reward", "tw_reward_usd"])
+    wide = monthly_rollup_by_scope(empty)
+    assert wide.empty
+    assert list(wide.columns) == ["month", "wallet_usds_dr_usd",
+                                  "morpho_dr_usd", "total_dr_usd"]

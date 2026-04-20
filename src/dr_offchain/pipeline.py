@@ -1,9 +1,22 @@
-"""FIFO eligibility + time-weighted average balance + XR reward.
+"""Sticky attribution + time-weighted average balance + XR reward.
 
 Reference: SPARK_DR_METHODOLOGY.md.
-Attribution is NOT sticky: on each outflow, the tagged eligible balance is
-burned FIFO, clamped at 0. Untagged inflows do NOT grow eligible, so the
-pipeline only needs tagged Referrals (from JSON) + outflows (from Dune).
+
+Attribution is STICKY, matching Spark's on-chain `last_value(ref_code) ignore
+nulls` semantics: once a depositor has their first tagged inflow in a given
+scope, the entire running balance becomes eligible for rewards. Subsequent
+untagged inflows grow eligible; outflows reduce it (clamped at 0). The
+attribution latch never releases, so a balance that hits 0 and regrows from
+untagged deposits is still fully eligible.
+
+Scopes:
+  * `wallet_usds:{depositor}`  — USDS held in the depositor's wallet. Tagged
+    inflows come from CowSwap or PSM routes; both deliver USDS to the wallet
+    and share this single balance bucket.
+  * `morpho:{vault}`            — Shares owned in a Spark-curated Morpho
+    VaultV2. Tagged inflows are Skybase-routed deposits; untagged inflows
+    are Deposit events fired by the vault for the same `onBehalf` from any
+    other entry point.
 """
 from __future__ import annotations
 
@@ -19,11 +32,17 @@ from .loader import SyntheticReferral
 
 
 @dataclass(frozen=True)
-class OutflowEvent:
+class BalanceEvent:
+    """Untagged balance change observed on-chain (from Dune).
+
+    `direction` is "in" for inflows (balance grows) or "out" for outflows
+    (balance shrinks, clamped at 0).
+    """
     ts: datetime
     depositor: str
     scope_id: str
-    amount: float   # positive USDS amount leaving the tracked balance
+    direction: str  # "in" | "out"
+    amount: float
     tx_hash: str
 
 
@@ -38,29 +57,41 @@ def _rate_for_date(d: date) -> float:
     return 0.0
 
 
-def build_eligibility_trajectory(
+def build_sticky_trajectory(
     referrals: list[SyntheticReferral],
-    outflows: list[OutflowEvent],
+    events: list[BalanceEvent],
 ) -> dict[tuple[str, str], list[tuple[datetime, float]]]:
-    """Return {(depositor, scope_id): [(ts, eligible_after_event), ...]}
-    sorted chronologically.
-    """
-    events: dict[tuple[str, str], list[tuple[datetime, float]]] = defaultdict(list)
-    for r in referrals:
-        events[(r.depositor, r.scope_id)].append((r.ts, +r.amount))
-    for o in outflows:
-        events[(o.depositor, o.scope_id)].append((o.ts, -o.amount))
+    """Return {(depositor, scope_id): [(ts, eligible_after_event), ...]}.
 
-    traj: dict[tuple[str, str], list[tuple[datetime, float]]] = {}
-    for key, evts in events.items():
+    Merges tagged referrals (which inject an inflow AND arm the attribution
+    latch) with untagged Dune balance events. For each scope, iterates events
+    in chronological order maintaining a non-negative running balance and a
+    one-way `attributed` latch. Eligible after each event is the running
+    balance if the latch has ever fired, else 0.
+    """
+    # (ts, delta, is_tagged) tuples per (depositor, scope_id)
+    merged: dict[tuple[str, str], list[tuple[datetime, float, bool]]] = defaultdict(list)
+    for r in referrals:
+        merged[(r.depositor, r.scope_id)].append((r.ts, +r.amount, True))
+    for e in events:
+        delta = e.amount if e.direction == "in" else -e.amount
+        merged[(e.depositor, e.scope_id)].append((e.ts, delta, False))
+
+    result: dict[tuple[str, str], list[tuple[datetime, float]]] = {}
+    for key, evts in merged.items():
+        # Stable sort so tagged + untagged events at the same ts preserve
+        # input order; both yield the same post-event balance regardless.
         evts.sort(key=lambda x: x[0])
-        eligible = 0.0
-        points: list[tuple[datetime, float]] = []
-        for ts, delta in evts:
-            eligible = eligible + delta if delta >= 0 else max(0.0, eligible + delta)
-            points.append((ts, eligible))
-        traj[key] = points
-    return traj
+        balance = 0.0
+        attributed = False
+        snaps: list[tuple[datetime, float]] = []
+        for ts, delta, is_tagged in evts:
+            balance = max(0.0, balance + delta)
+            if is_tagged:
+                attributed = True
+            snaps.append((ts, balance if attributed else 0.0))
+        result[key] = snaps
+    return result
 
 
 def compute_daily_tw(
@@ -115,15 +146,30 @@ def apply_rewards(daily: pd.DataFrame) -> pd.DataFrame:
     return df
 
 
-def monthly_rollup(daily: pd.DataFrame) -> pd.DataFrame:
+_SCOPE_KINDS = ("wallet_usds", "morpho")
+
+
+def monthly_rollup_by_scope(daily: pd.DataFrame) -> pd.DataFrame:
+    """Wide-format monthly rollup: one column per scope kind + total.
+
+    Expects `daily` to carry scope_id of the form `<kind>:<suffix>` where
+    kind ∈ {wallet_usds, morpho}. Emits columns
+    `month, wallet_usds_dr_usd, morpho_dr_usd, total_dr_usd`.
+    """
+    cols = ["month", *[f"{k}_dr_usd" for k in _SCOPE_KINDS], "total_dr_usd"]
     if daily.empty:
-        return pd.DataFrame(columns=["month", "scope_kind", "tw_reward_usd"])
+        return pd.DataFrame(columns=cols)
     df = daily.copy()
     df["month"] = pd.to_datetime(df["dt"]).dt.to_period("M").dt.to_timestamp().dt.date
     df["scope_kind"] = df["scope_id"].str.split(":", n=1).str[0]
-    return (
-        df.groupby(["month", "scope_kind"], as_index=False)["tw_reward_usd"]
-        .sum()
-        .sort_values(["month", "scope_kind"])
-        .reset_index(drop=True)
+    pivot = (
+        df.groupby(["month", "scope_kind"])["tw_reward_usd"].sum()
+        .unstack("scope_kind", fill_value=0.0)
+        .reset_index()
     )
+    for k in _SCOPE_KINDS:
+        if k not in pivot.columns:
+            pivot[k] = 0.0
+    pivot["total_dr_usd"] = pivot[list(_SCOPE_KINDS)].sum(axis=1)
+    pivot = pivot.rename(columns={k: f"{k}_dr_usd" for k in _SCOPE_KINDS})
+    return pivot[cols].sort_values("month").reset_index(drop=True)

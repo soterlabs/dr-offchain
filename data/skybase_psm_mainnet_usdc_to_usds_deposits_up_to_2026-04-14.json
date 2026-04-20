@@ -1,0 +1,662 @@
+[
+  {
+    "timestamp": "2026-04-01T12:40:39Z",
+    "referral_code": 0,
+    "depositor": "0x008C9Ef7bEF55E6731eE5ce466b18eE99A6D3eeD",
+    "token": "0xdC035D45d973E3EC169d2276DDab16f1e407384F",
+    "target_contract": "0xA188EEc8F81263234dA3622A406892F3D630f98c",
+    "amount_wei": "100000000000000000",
+    "shares_received": "100000000000000000",
+    "tx_hash": "0x584b070a3c7fa1aff43bc415a1c386d5bda4a6a1d3c1efb2d478c33fb3c3e2b2"
+  },
+  {
+    "timestamp": "2026-04-01T16:49:51Z",
+    "referral_code": 0,
+    "depositor": "0xA7d4E1E442bD9a37408446bA8D52486A1cf09489",
+    "token": "0xdC035D45d973E3EC169d2276DDab16f1e407384F",
+    "target_contract": "0xA188EEc8F81263234dA3622A406892F3D630f98c",
+    "amount_wei": "234790000000000000000000",
+    "shares_received": "234790000000000000000000",
+    "tx_hash": "0xc78ce8c69ea1ac4213754fe3f239b7f9c0815927a00d20a1d1784efc53aa57ac"
+  },
+  {
+    "timestamp": "2026-04-01T21:49:52Z",
+    "referral_code": 0,
+    "depositor": "0x9379dEDD799310D6a0B3ec2660C013c985A22f8F",
+    "token": "0xdC035D45d973E3EC169d2276DDab16f1e407384F",
+    "target_contract": "0xA188EEc8F81263234dA3622A406892F3D630f98c",
+    "amount_wei": "151002605174000000000000",
+    "shares_received": "151002605174000000000000",
+    "tx_hash": "0xb2c55576620523fdf1dcc9e09fd79f65d3110d995e7592e5c9354f84b41fa2be"
+  },
+  {
+    "timestamp": "2026-04-01T22:49:41Z",
+    "referral_code": 0,
+    "depositor": "0xe3eD29f95B95ef41E736588D35210c7ccd38E028",
+    "token": "0xdC035D45d973E3EC169d2276DDab16f1e407384F",
+    "target_contract": "0xA188EEc8F81263234dA3622A406892F3D630f98c",
+    "amount_wei": "100000000000000000000000",
+    "shares_received": "100000000000000000000000",
+    "tx_hash": "0xc0701ada36f7d38d2da9ea84cd1d791e285f9d2d2fd512b2076e63940a772b58"
+  },
+  {
+    "timestamp": "2026-04-02T07:05:30Z",
+    "referral_code": 0,
+    "depositor": "0x997aba143B13e90ccbb47d61cc2c12C2B3e82Ae9",
+    "token": "0xdC035D45d973E3EC169d2276DDab16f1e407384F",
+    "target_contract": "0xA188EEc8F81263234dA3622A406892F3D630f98c",
+    "amount_wei": "292810530000000000000000",
+    "shares_received": "292810530000000000000000",
+    "tx_hash": "0xaefb6d6117765f57fcd584d6091e3754ae294f58365e16ae1594733509d12462"
+  },
+  {
+    "timestamp": "2026-04-02T08:26:09Z",
+    "referral_code": 0,
+    "depositor": "0x235047Ed79b2b7e61eD5c1735944450ED9B65FE9",
+    "token": "0xdC035D45d973E3EC169d2276DDab16f1e407384F",
+    "target_contract": "0xA188EEc8F81263234dA3622A406892F3D630f98c",
+    "amount_wei": "50000000000000000000",
+    "shares_received": "50000000000000000000",
+    "tx_hash": "0x62999ab5b6c4e98ab45e6053edb704dfd05c2f6ead7bb0ab74f8cb39bcee0181"
+  },
+  {
+    "timestamp": "2026-04-02T09:36:15Z",
+    "referral_code": 0,
+    "depositor": "0xFd5e7b8C7Fe993644c622f30b5871E33Bdb69eB6",
+    "token": "0xdC035D45d973E3EC169d2276DDab16f1e407384F",
+    "target_contract": "0xA188EEc8F81263234dA3622A406892F3D630f98c",
+    "amount_wei": "5459200000000000000000",
+    "shares_received": "5459200000000000000000",
+    "tx_hash": "0x041b8b141865278f2e0f257431340a6c0c6093c0ec743bffaaee7a71450ecec3"
+  },
+  {
+    "timestamp": "2026-04-02T10:38:53Z",
+    "referral_code": 0,
+    "depositor": "0x8867b0a804a407d9bc2B368B6d7e6bcaf7D404bc",
+    "token": "0xdC035D45d973E3EC169d2276DDab16f1e407384F",
+    "target_contract": "0xA188EEc8F81263234dA3622A406892F3D630f98c",
+    "amount_wei": "845505395735000000000000",
+    "shares_received": "845505395735000000000000",
+    "tx_hash": "0xbc23ba4f3082799d70bffbf2bd4fd2335f8253ce8bbec1a2e0bf078e5c10323f"
+  },
+  {
+    "timestamp": "2026-04-02T10:49:04Z",
+    "referral_code": 0,
+    "depositor": "0xE05c75c79464a10D6497548902492e64ec8a6A73",
+    "token": "0xdC035D45d973E3EC169d2276DDab16f1e407384F",
+    "target_contract": "0xA188EEc8F81263234dA3622A406892F3D630f98c",
+    "amount_wei": "53755686302000000000000",
+    "shares_received": "53755686302000000000000",
+    "tx_hash": "0x13224d1bc0bdfb3ef4a28e5d83fd6bd861257cf82cfc2b6ff396f2f26384ed62"
+  },
+  {
+    "timestamp": "2026-04-02T16:55:06Z",
+    "referral_code": 0,
+    "depositor": "0x997aba143B13e90ccbb47d61cc2c12C2B3e82Ae9",
+    "token": "0xdC035D45d973E3EC169d2276DDab16f1e407384F",
+    "target_contract": "0xA188EEc8F81263234dA3622A406892F3D630f98c",
+    "amount_wei": "56608026664000000000000",
+    "shares_received": "56608026664000000000000",
+    "tx_hash": "0xd0c38666e1804f2bdcea8650f143bac606b2ece54ec022378a15df1b0cb14e67"
+  },
+  {
+    "timestamp": "2026-04-02T23:09:29Z",
+    "referral_code": 0,
+    "depositor": "0xedE14efF9f19Bdf0fa73a21374792DE8d555b866",
+    "token": "0xdC035D45d973E3EC169d2276DDab16f1e407384F",
+    "target_contract": "0xA188EEc8F81263234dA3622A406892F3D630f98c",
+    "amount_wei": "663505923249000000000000",
+    "shares_received": "663505923249000000000000",
+    "tx_hash": "0x6f25194342c65ec0156f3abe5caefbbbd1e0922a27d329e6aaeb490d4cce84eb"
+  },
+  {
+    "timestamp": "2026-04-03T06:02:06Z",
+    "referral_code": 0,
+    "depositor": "0x997aba143B13e90ccbb47d61cc2c12C2B3e82Ae9",
+    "token": "0xdC035D45d973E3EC169d2276DDab16f1e407384F",
+    "target_contract": "0xA188EEc8F81263234dA3622A406892F3D630f98c",
+    "amount_wei": "356370969847000000000000",
+    "shares_received": "356370969847000000000000",
+    "tx_hash": "0xd1fc3c69df3060b678bb3dffe766ad3c2fdbd4de386e06fa7f9cece804280fee"
+  },
+  {
+    "timestamp": "2026-04-03T08:27:06Z",
+    "referral_code": 0,
+    "depositor": "0xeC43fD85Ff6FE40D15fBeE85e76a28b37eB7E083",
+    "token": "0xdC035D45d973E3EC169d2276DDab16f1e407384F",
+    "target_contract": "0xA188EEc8F81263234dA3622A406892F3D630f98c",
+    "amount_wei": "1259011079597000000000000",
+    "shares_received": "1259011079597000000000000",
+    "tx_hash": "0x8296da44ac67352001e6a62f50eae8870997cc956c0fc4ef3f888e52b3e70c0a"
+  },
+  {
+    "timestamp": "2026-04-04T10:21:29Z",
+    "referral_code": 0,
+    "depositor": "0xE05c75c79464a10D6497548902492e64ec8a6A73",
+    "token": "0xdC035D45d973E3EC169d2276DDab16f1e407384F",
+    "target_contract": "0xA188EEc8F81263234dA3622A406892F3D630f98c",
+    "amount_wei": "410300696000000000000",
+    "shares_received": "410300696000000000000",
+    "tx_hash": "0x75ef24817663a7ce7569109909b793a2d6ea3820c322c8a9915d945627e38e0c"
+  },
+  {
+    "timestamp": "2026-04-05T04:31:16Z",
+    "referral_code": 0,
+    "depositor": "0x24D450fc5C00cAEA988Df162f286568C4B1a7e6a",
+    "token": "0xdC035D45d973E3EC169d2276DDab16f1e407384F",
+    "target_contract": "0xA188EEc8F81263234dA3622A406892F3D630f98c",
+    "amount_wei": "34945915440000000000000",
+    "shares_received": "34945915440000000000000",
+    "tx_hash": "0x3244ad3a63b34d94912f5c518085c6d7df42be61931deebc4fa53acdba20e828"
+  },
+  {
+    "timestamp": "2026-04-05T05:30:34Z",
+    "referral_code": 0,
+    "depositor": "0xf11386D1082Cec68817499ca0EbDD6c76473f15f",
+    "token": "0xdC035D45d973E3EC169d2276DDab16f1e407384F",
+    "target_contract": "0xA188EEc8F81263234dA3622A406892F3D630f98c",
+    "amount_wei": "999999227396000000000000",
+    "shares_received": "999999227396000000000000",
+    "tx_hash": "0x903f37edfef7564fe1c2be2ffd33826746d40ceb69349c7723beee6927864057"
+  },
+  {
+    "timestamp": "2026-04-05T20:45:02Z",
+    "referral_code": 0,
+    "depositor": "0xfd841DE3281fc9D419ebc67749520E74e6f92ccB",
+    "token": "0xdC035D45d973E3EC169d2276DDab16f1e407384F",
+    "target_contract": "0xA188EEc8F81263234dA3622A406892F3D630f98c",
+    "amount_wei": "1028451468000000000000",
+    "shares_received": "1028451468000000000000",
+    "tx_hash": "0x115d8ade717e7823112933576a4452f4624c61f5e38d12ac8c2e3de32681071a"
+  },
+  {
+    "timestamp": "2026-04-06T08:21:32Z",
+    "referral_code": 0,
+    "depositor": "0xc230f53eEf9f19D3B8567BE909f1b8D18Ec055F1",
+    "token": "0xdC035D45d973E3EC169d2276DDab16f1e407384F",
+    "target_contract": "0xA188EEc8F81263234dA3622A406892F3D630f98c",
+    "amount_wei": "15218131183000000000000",
+    "shares_received": "15218131183000000000000",
+    "tx_hash": "0x38efe8c2cdb10817319a545bae0d8a5b72217759e1aac9c25231d1183d6dd5e4"
+  },
+  {
+    "timestamp": "2026-04-06T08:47:15Z",
+    "referral_code": 0,
+    "depositor": "0xFd5e7b8C7Fe993644c622f30b5871E33Bdb69eB6",
+    "token": "0xdC035D45d973E3EC169d2276DDab16f1e407384F",
+    "target_contract": "0xA188EEc8F81263234dA3622A406892F3D630f98c",
+    "amount_wei": "19804495666000000000000",
+    "shares_received": "19804495666000000000000",
+    "tx_hash": "0x551ea01701fc92e727cd10b4fd6525202ddb2960c176344624fd5393291542c0"
+  },
+  {
+    "timestamp": "2026-04-06T16:28:07Z",
+    "referral_code": 0,
+    "depositor": "0x1df4bfb515fd05c1dAf1585FbdE2fcC31919A253",
+    "token": "0xdC035D45d973E3EC169d2276DDab16f1e407384F",
+    "target_contract": "0xA188EEc8F81263234dA3622A406892F3D630f98c",
+    "amount_wei": "633860806000000000000",
+    "shares_received": "633860806000000000000",
+    "tx_hash": "0xdb9bb2f7a2ca0772bd5bf8ee428a427d3ec01ee014d1df535725ded6354e4d0c"
+  },
+  {
+    "timestamp": "2026-04-07T15:06:26Z",
+    "referral_code": 0,
+    "depositor": "0x616f54F617A2680630468276570c2967Ae811397",
+    "token": "0xdC035D45d973E3EC169d2276DDab16f1e407384F",
+    "target_contract": "0xA188EEc8F81263234dA3622A406892F3D630f98c",
+    "amount_wei": "105000000000000000000",
+    "shares_received": "105000000000000000000",
+    "tx_hash": "0x90f2056c15399b742a689525e58f641639003c8be6289a1c26318e2274b457ed"
+  },
+  {
+    "timestamp": "2026-04-07T16:14:30Z",
+    "referral_code": 0,
+    "depositor": "0x008C9Ef7bEF55E6731eE5ce466b18eE99A6D3eeD",
+    "token": "0xdC035D45d973E3EC169d2276DDab16f1e407384F",
+    "target_contract": "0xA188EEc8F81263234dA3622A406892F3D630f98c",
+    "amount_wei": "1100000000000000000",
+    "shares_received": "1100000000000000000",
+    "tx_hash": "0xb58a43269bfffb038d2924a79e660ab1bb03b76a39d32326da935fd2dad626d6"
+  },
+  {
+    "timestamp": "2026-04-07T21:03:38Z",
+    "referral_code": 0,
+    "depositor": "0x3bF7325B5436bc5e25eC7A30998e3aa4277c0cFF",
+    "token": "0xdC035D45d973E3EC169d2276DDab16f1e407384F",
+    "target_contract": "0xA188EEc8F81263234dA3622A406892F3D630f98c",
+    "amount_wei": "1490341087000000000000",
+    "shares_received": "1490341087000000000000",
+    "tx_hash": "0x59deb701b348e2b2490a1cd0f12ee02de8187de4bfd584d0ff480c61a129414e"
+  },
+  {
+    "timestamp": "2026-04-08T05:26:28Z",
+    "referral_code": 0,
+    "depositor": "0x661BC014Ba045A1918215cbe2aF8121ADA09638D",
+    "token": "0xdC035D45d973E3EC169d2276DDab16f1e407384F",
+    "target_contract": "0xA188EEc8F81263234dA3622A406892F3D630f98c",
+    "amount_wei": "500000000000000000000",
+    "shares_received": "500000000000000000000",
+    "tx_hash": "0x4c8e0a7689b59b1961942eb43ebb5773cdb9b4da304294f8ae841bbd1dea0129"
+  },
+  {
+    "timestamp": "2026-04-08T05:34:30Z",
+    "referral_code": 0,
+    "depositor": "0x661BC014Ba045A1918215cbe2aF8121ADA09638D",
+    "token": "0xdC035D45d973E3EC169d2276DDab16f1e407384F",
+    "target_contract": "0xA188EEc8F81263234dA3622A406892F3D630f98c",
+    "amount_wei": "500000000000000000000",
+    "shares_received": "500000000000000000000",
+    "tx_hash": "0xc04aa7fc28870da014e2cb108eeedba9a46fad02522c8d22e0c950b9af763469"
+  },
+  {
+    "timestamp": "2026-04-08T06:03:53Z",
+    "referral_code": 0,
+    "depositor": "0x661BC014Ba045A1918215cbe2aF8121ADA09638D",
+    "token": "0xdC035D45d973E3EC169d2276DDab16f1e407384F",
+    "target_contract": "0xA188EEc8F81263234dA3622A406892F3D630f98c",
+    "amount_wei": "4000000000000000000000000",
+    "shares_received": "4000000000000000000000000",
+    "tx_hash": "0x5404f736b6d95b6f0d74eb53537b0fc9b0759ae2bac084d4d6730243b51f2036"
+  },
+  {
+    "timestamp": "2026-04-08T12:13:14Z",
+    "referral_code": 0,
+    "depositor": "0xb620E9EC25444E8a0C594044033e1CF6bae5af4C",
+    "token": "0xdC035D45d973E3EC169d2276DDab16f1e407384F",
+    "target_contract": "0xA188EEc8F81263234dA3622A406892F3D630f98c",
+    "amount_wei": "200000000000000000000000",
+    "shares_received": "200000000000000000000000",
+    "tx_hash": "0xf6c92e8de31a6e0830e242d75bfc6fd6156cd3071051dca4e41390a4d94b2b87"
+  },
+  {
+    "timestamp": "2026-04-08T12:33:51Z",
+    "referral_code": 0,
+    "depositor": "0xb620E9EC25444E8a0C594044033e1CF6bae5af4C",
+    "token": "0xdC035D45d973E3EC169d2276DDab16f1e407384F",
+    "target_contract": "0xA188EEc8F81263234dA3622A406892F3D630f98c",
+    "amount_wei": "100000000000000000000000",
+    "shares_received": "100000000000000000000000",
+    "tx_hash": "0x98540380737272142e3b6c3fd79396a3fab87dc378317476def231fbd93a577e"
+  },
+  {
+    "timestamp": "2026-04-08T15:49:01Z",
+    "referral_code": 0,
+    "depositor": "0xb620E9EC25444E8a0C594044033e1CF6bae5af4C",
+    "token": "0xdC035D45d973E3EC169d2276DDab16f1e407384F",
+    "target_contract": "0xA188EEc8F81263234dA3622A406892F3D630f98c",
+    "amount_wei": "99499200000000000000000",
+    "shares_received": "99499200000000000000000",
+    "tx_hash": "0x4ce27dd79e755ccb270632d2a4941e32e712999bf1a8beafba9a3c253d05cc16"
+  },
+  {
+    "timestamp": "2026-04-08T19:05:49Z",
+    "referral_code": 0,
+    "depositor": "0xE41a959BFb982eb4171017144c412752a8531c39",
+    "token": "0xdC035D45d973E3EC169d2276DDab16f1e407384F",
+    "target_contract": "0xA188EEc8F81263234dA3622A406892F3D630f98c",
+    "amount_wei": "19716124601000000000000",
+    "shares_received": "19716124601000000000000",
+    "tx_hash": "0x46425dd99204cb74e1ba27c2518a392e9ca69e50c22fcb221af7b7954b1f6b1a"
+  },
+  {
+    "timestamp": "2026-04-09T03:02:03Z",
+    "referral_code": 0,
+    "depositor": "0xFBb671f63870a784127ec5024Ffac2f1809ED688",
+    "token": "0xdC035D45d973E3EC169d2276DDab16f1e407384F",
+    "target_contract": "0xA188EEc8F81263234dA3622A406892F3D630f98c",
+    "amount_wei": "244078569612000000000000",
+    "shares_received": "244078569612000000000000",
+    "tx_hash": "0x89502d79573b0f4520a85afc5546750071376893f10fe8fd149b19c7a4826efa"
+  },
+  {
+    "timestamp": "2026-04-09T03:44:40Z",
+    "referral_code": 0,
+    "depositor": "0x666FcB28F39053cF758a17a19B239388eF764577",
+    "token": "0xdC035D45d973E3EC169d2276DDab16f1e407384F",
+    "target_contract": "0xA188EEc8F81263234dA3622A406892F3D630f98c",
+    "amount_wei": "7288124238000000000000",
+    "shares_received": "7288124238000000000000",
+    "tx_hash": "0x41c64d25abe92f0a7ee3a68c8092f5419d5a7ebe573be346af1c3c2955ee8d45"
+  },
+  {
+    "timestamp": "2026-04-09T06:45:54Z",
+    "referral_code": 0,
+    "depositor": "0xf42AD4b174E87881BE2A525216B0f114E807F527",
+    "token": "0xdC035D45d973E3EC169d2276DDab16f1e407384F",
+    "target_contract": "0xA188EEc8F81263234dA3622A406892F3D630f98c",
+    "amount_wei": "10000000000000000000000",
+    "shares_received": "10000000000000000000000",
+    "tx_hash": "0x7f103669111cd15f0cd42e763064c3cab938d6d05f35e2648605eeb4f9f13acf"
+  },
+  {
+    "timestamp": "2026-04-09T08:35:17Z",
+    "referral_code": 0,
+    "depositor": "0xA12cddc1026c200Ea7A8aAee7E3BDe2AdFaaDBBB",
+    "token": "0xdC035D45d973E3EC169d2276DDab16f1e407384F",
+    "target_contract": "0xA188EEc8F81263234dA3622A406892F3D630f98c",
+    "amount_wei": "1000000000000000000000",
+    "shares_received": "1000000000000000000000",
+    "tx_hash": "0x1f78be49d7094c12a3e873f1d4fe1bad30d2a304a81a794c8b5b000dc9408e9a"
+  },
+  {
+    "timestamp": "2026-04-09T09:10:54Z",
+    "referral_code": 0,
+    "depositor": "0xBE811292EE68241F65237B21725af4BF3553a771",
+    "token": "0xdC035D45d973E3EC169d2276DDab16f1e407384F",
+    "target_contract": "0xA188EEc8F81263234dA3622A406892F3D630f98c",
+    "amount_wei": "26007085000000000000",
+    "shares_received": "26007085000000000000",
+    "tx_hash": "0xdc6abfb1ac1cf2dd47a87fbc1472d01f5cb31b8634742d6308393c54055b4222"
+  },
+  {
+    "timestamp": "2026-04-09T11:03:54Z",
+    "referral_code": 0,
+    "depositor": "0x41902c2a6F8b3720215d2dec15E904137b9f9940",
+    "token": "0xdC035D45d973E3EC169d2276DDab16f1e407384F",
+    "target_contract": "0xA188EEc8F81263234dA3622A406892F3D630f98c",
+    "amount_wei": "1000010000000000000000000",
+    "shares_received": "1000010000000000000000000",
+    "tx_hash": "0x5943f47a26275ed84d227facd339e3ecdacc2bc00c80ea7a787e8d18b049f645"
+  },
+  {
+    "timestamp": "2026-04-09T14:19:05Z",
+    "referral_code": 0,
+    "depositor": "0x1368F026630e7B7EEC9083A6488920621fbEa2e2",
+    "token": "0xdC035D45d973E3EC169d2276DDab16f1e407384F",
+    "target_contract": "0xA188EEc8F81263234dA3622A406892F3D630f98c",
+    "amount_wei": "30000000000000000000000",
+    "shares_received": "30000000000000000000000",
+    "tx_hash": "0x6cddc4d363eb8a66925016f2919cf4bb8b17844c24f2cd0189c0ffcbd7996926"
+  },
+  {
+    "timestamp": "2026-04-09T21:00:40Z",
+    "referral_code": 0,
+    "depositor": "0x0DAAf377d99240c6f4eB7205F0653156E4d2fE02",
+    "token": "0xdC035D45d973E3EC169d2276DDab16f1e407384F",
+    "target_contract": "0xA188EEc8F81263234dA3622A406892F3D630f98c",
+    "amount_wei": "351229483000000000000",
+    "shares_received": "351229483000000000000",
+    "tx_hash": "0xd86b0d85ce537cd2778d16dbf4d8868b29fe6fcb242fb7b16b33b6bbdbd71bb2"
+  },
+  {
+    "timestamp": "2026-04-10T06:02:06Z",
+    "referral_code": 0,
+    "depositor": "0x661BC014Ba045A1918215cbe2aF8121ADA09638D",
+    "token": "0xdC035D45d973E3EC169d2276DDab16f1e407384F",
+    "target_contract": "0xA188EEc8F81263234dA3622A406892F3D630f98c",
+    "amount_wei": "2307600000000000000000000",
+    "shares_received": "2307600000000000000000000",
+    "tx_hash": "0xc7718bed365c32e43c1e531827dc8177e8230976486aaea7a82f66433fb79833"
+  },
+  {
+    "timestamp": "2026-04-10T08:20:15Z",
+    "referral_code": 0,
+    "depositor": "0x87f5Ae0e144100F1a8836707202f35077b84e3DD",
+    "token": "0xdC035D45d973E3EC169d2276DDab16f1e407384F",
+    "target_contract": "0xA188EEc8F81263234dA3622A406892F3D630f98c",
+    "amount_wei": "1500100000000000000000000",
+    "shares_received": "1500100000000000000000000",
+    "tx_hash": "0x32e25c40572c3905d1c31bc7659b70400738ad5691960dafbbbf34ffa9089f96"
+  },
+  {
+    "timestamp": "2026-04-10T18:41:04Z",
+    "referral_code": 0,
+    "depositor": "0x8a95a711A56bD837D678ab299dE7B1Ec9863051C",
+    "token": "0xdC035D45d973E3EC169d2276DDab16f1e407384F",
+    "target_contract": "0xA188EEc8F81263234dA3622A406892F3D630f98c",
+    "amount_wei": "1950000000000000000000000",
+    "shares_received": "1950000000000000000000000",
+    "tx_hash": "0x0be980a1d53e9079f142ef8a02369905d52886ba878fc7554e3f5723025a59c3"
+  },
+  {
+    "timestamp": "2026-04-10T18:59:05Z",
+    "referral_code": 0,
+    "depositor": "0xAE1D71A59E1bcBA9a72b03E15014b6B9A423d06D",
+    "token": "0xdC035D45d973E3EC169d2276DDab16f1e407384F",
+    "target_contract": "0xA188EEc8F81263234dA3622A406892F3D630f98c",
+    "amount_wei": "100000000000000000000",
+    "shares_received": "100000000000000000000",
+    "tx_hash": "0xdc4d3cc510592442d55b6a08867c93395489cf024f88657eb15f8314655f6ba0"
+  },
+  {
+    "timestamp": "2026-04-10T22:24:51Z",
+    "referral_code": 0,
+    "depositor": "0x08aD0eadfc5643A944538f6b19e3CC3e5C4f4997",
+    "token": "0xdC035D45d973E3EC169d2276DDab16f1e407384F",
+    "target_contract": "0xA188EEc8F81263234dA3622A406892F3D630f98c",
+    "amount_wei": "100000000000000000000",
+    "shares_received": "100000000000000000000",
+    "tx_hash": "0x777e89fae02add5d6dddc509136e11426c157ae6219b0967d7e2e7c40177b270"
+  },
+  {
+    "timestamp": "2026-04-10T22:35:15Z",
+    "referral_code": 0,
+    "depositor": "0x4Ec495de9D526c9851da5E72A8A189C5EC40c31B",
+    "token": "0xdC035D45d973E3EC169d2276DDab16f1e407384F",
+    "target_contract": "0xA188EEc8F81263234dA3622A406892F3D630f98c",
+    "amount_wei": "26100117265000000000000",
+    "shares_received": "26100117265000000000000",
+    "tx_hash": "0xe6374e5e98d5e30781012f4418c023a33ad4c14c2ed2d62d3fea4b616e8117b4"
+  },
+  {
+    "timestamp": "2026-04-11T02:12:17Z",
+    "referral_code": 0,
+    "depositor": "0xc984787e738Cb5d3E9480565bE92f3dE73D2Af8d",
+    "token": "0xdC035D45d973E3EC169d2276DDab16f1e407384F",
+    "target_contract": "0xA188EEc8F81263234dA3622A406892F3D630f98c",
+    "amount_wei": "941540750696000000000000",
+    "shares_received": "941540750696000000000000",
+    "tx_hash": "0x036cb006eec2ed03abdbd66def34c5944be84be351bf6fc7621dcf23974eefbb"
+  },
+  {
+    "timestamp": "2026-04-11T05:56:31Z",
+    "referral_code": 0,
+    "depositor": "0x586AAff712d17C05cDD811736495676dd0fc6BEb",
+    "token": "0xdC035D45d973E3EC169d2276DDab16f1e407384F",
+    "target_contract": "0xA188EEc8F81263234dA3622A406892F3D630f98c",
+    "amount_wei": "163208240661000000000000",
+    "shares_received": "163208240661000000000000",
+    "tx_hash": "0x47c3bc1bfd6a1f02069b3e7fccc03cd0ac7c4e870098d6160665700b2f4d3d2f"
+  },
+  {
+    "timestamp": "2026-04-11T13:35:56Z",
+    "referral_code": 0,
+    "depositor": "0x666FcB28F39053cF758a17a19B239388eF764577",
+    "token": "0xdC035D45d973E3EC169d2276DDab16f1e407384F",
+    "target_contract": "0xA188EEc8F81263234dA3622A406892F3D630f98c",
+    "amount_wei": "10751200000000000000000",
+    "shares_received": "10751200000000000000000",
+    "tx_hash": "0xe59117cea29d5f014296f4f875be8c707cf4bec7ecff99d019b884e63980aa83"
+  },
+  {
+    "timestamp": "2026-04-11T18:01:39Z",
+    "referral_code": 0,
+    "depositor": "0x80f69bB3Cb5ECFa361BAD3A1C9F463c9c0daE049",
+    "token": "0xdC035D45d973E3EC169d2276DDab16f1e407384F",
+    "target_contract": "0xA188EEc8F81263234dA3622A406892F3D630f98c",
+    "amount_wei": "200000000000000000000",
+    "shares_received": "200000000000000000000",
+    "tx_hash": "0xd3239a9db9324b4a79f30faff1af3a3c74c64ae2e1ea71ddd62b6148db05204e"
+  },
+  {
+    "timestamp": "2026-04-12T00:30:39Z",
+    "referral_code": 0,
+    "depositor": "0xAE1D71A59E1bcBA9a72b03E15014b6B9A423d06D",
+    "token": "0xdC035D45d973E3EC169d2276DDab16f1e407384F",
+    "target_contract": "0xA188EEc8F81263234dA3622A406892F3D630f98c",
+    "amount_wei": "6000000000000000000000",
+    "shares_received": "6000000000000000000000",
+    "tx_hash": "0x112952662b537b477e8d58aa59ac6a0501873b663600de5a37eea87106ffd353"
+  },
+  {
+    "timestamp": "2026-04-12T01:20:51Z",
+    "referral_code": 0,
+    "depositor": "0xC3DD48eBcA71DCB27BfEaAAF6d0AFa8D882EC22b",
+    "token": "0xdC035D45d973E3EC169d2276DDab16f1e407384F",
+    "target_contract": "0xA188EEc8F81263234dA3622A406892F3D630f98c",
+    "amount_wei": "20064139970000000000000",
+    "shares_received": "20064139970000000000000",
+    "tx_hash": "0xa5fca506538f4214e9162a56d2223644db2f94ee9c5aecdcd7f9c4637886a174"
+  },
+  {
+    "timestamp": "2026-04-12T09:06:14Z",
+    "referral_code": 0,
+    "depositor": "0xfBD8A8Ffa1F97AC408E0CfCfdD77757b2c22Db57",
+    "token": "0xdC035D45d973E3EC169d2276DDab16f1e407384F",
+    "target_contract": "0xA188EEc8F81263234dA3622A406892F3D630f98c",
+    "amount_wei": "177819704492000000000000",
+    "shares_received": "177819704492000000000000",
+    "tx_hash": "0x5ec77eddb503ab21b07e99d08da756953a7f5eac2156e2c39c03702c3a7cc70a"
+  },
+  {
+    "timestamp": "2026-04-12T18:53:51Z",
+    "referral_code": 0,
+    "depositor": "0x559458Aac63528fB18893d797FF223dF4D5fa3C9",
+    "token": "0xdC035D45d973E3EC169d2276DDab16f1e407384F",
+    "target_contract": "0xA188EEc8F81263234dA3622A406892F3D630f98c",
+    "amount_wei": "280134210145000000000000",
+    "shares_received": "280134210145000000000000",
+    "tx_hash": "0xe17989dc8bafb07359436ea76e7fef534de3131732516a5c474dda645b8e2a9d"
+  },
+  {
+    "timestamp": "2026-04-13T00:34:43Z",
+    "referral_code": 0,
+    "depositor": "0xd1b3BC8740bcf9C7078f4e9828f9807E439e0692",
+    "token": "0xdC035D45d973E3EC169d2276DDab16f1e407384F",
+    "target_contract": "0xA188EEc8F81263234dA3622A406892F3D630f98c",
+    "amount_wei": "3497806374000000000000",
+    "shares_received": "3497806374000000000000",
+    "tx_hash": "0x31ee639455ce01f711374da68897495129122d77ee51ca6bb514d02449e3ed59"
+  },
+  {
+    "timestamp": "2026-04-13T02:30:53Z",
+    "referral_code": 0,
+    "depositor": "0xC7E0E9ACE622da72d6cA7EA4d71CCD865C7b8f36",
+    "token": "0xdC035D45d973E3EC169d2276DDab16f1e407384F",
+    "target_contract": "0xA188EEc8F81263234dA3622A406892F3D630f98c",
+    "amount_wei": "303100003025000000000000",
+    "shares_received": "303100003025000000000000",
+    "tx_hash": "0x1c32f6865ccda205eb912d69fb70bcdfe6bc54bad71f15bf026e379027bdf60f"
+  },
+  {
+    "timestamp": "2026-04-13T06:23:06Z",
+    "referral_code": 0,
+    "depositor": "0xE079824072a94eb11FA48Adf5dD0c05a2182eeD4",
+    "token": "0xdC035D45d973E3EC169d2276DDab16f1e407384F",
+    "target_contract": "0xA188EEc8F81263234dA3622A406892F3D630f98c",
+    "amount_wei": "100000000000000000000000",
+    "shares_received": "100000000000000000000000",
+    "tx_hash": "0xa42ac72f36af7c4a3dfb180e59fbd40e9f207fd53e9ce745aa1a8864c3c22b7d"
+  },
+  {
+    "timestamp": "2026-04-13T06:48:56Z",
+    "referral_code": 0,
+    "depositor": "0xE079824072a94eb11FA48Adf5dD0c05a2182eeD4",
+    "token": "0xdC035D45d973E3EC169d2276DDab16f1e407384F",
+    "target_contract": "0xA188EEc8F81263234dA3622A406892F3D630f98c",
+    "amount_wei": "500000000000000000000000",
+    "shares_received": "500000000000000000000000",
+    "tx_hash": "0xe9ae1763a2a5617667e875824ce96ced4d673704c941993fdad8e6d2d32d2caf"
+  },
+  {
+    "timestamp": "2026-04-13T08:36:41Z",
+    "referral_code": 0,
+    "depositor": "0xa7e3682BB409c428B8Cc2dca4C5919557781582e",
+    "token": "0xdC035D45d973E3EC169d2276DDab16f1e407384F",
+    "target_contract": "0xA188EEc8F81263234dA3622A406892F3D630f98c",
+    "amount_wei": "1000000000000000000000",
+    "shares_received": "1000000000000000000000",
+    "tx_hash": "0xddb00f134aa6c54cadd30d5b866554808e08e57f021d7be64a5c6a656849c0f1"
+  },
+  {
+    "timestamp": "2026-04-13T08:46:39Z",
+    "referral_code": 0,
+    "depositor": "0x4082a97cB7F29aD4242fBBEE9A5EFE424217C254",
+    "token": "0xdC035D45d973E3EC169d2276DDab16f1e407384F",
+    "target_contract": "0xA188EEc8F81263234dA3622A406892F3D630f98c",
+    "amount_wei": "81000000000000000000000",
+    "shares_received": "81000000000000000000000",
+    "tx_hash": "0x8292ebd08a639946862656c6a0e975a6aaec644f13f0b6a9ebfeaab5aa635173"
+  },
+  {
+    "timestamp": "2026-04-13T12:43:43Z",
+    "referral_code": 0,
+    "depositor": "0x50c6AdCe5A0530BF75bFB76851d2454ad3b5f3A8",
+    "token": "0xdC035D45d973E3EC169d2276DDab16f1e407384F",
+    "target_contract": "0xA188EEc8F81263234dA3622A406892F3D630f98c",
+    "amount_wei": "100000000000000000000",
+    "shares_received": "100000000000000000000",
+    "tx_hash": "0x33e4f69296871b56e8499eb2ae2021c56c8878f788f1d276c0bcebe655c16161"
+  },
+  {
+    "timestamp": "2026-04-13T13:19:55Z",
+    "referral_code": 0,
+    "depositor": "0x50c6AdCe5A0530BF75bFB76851d2454ad3b5f3A8",
+    "token": "0xdC035D45d973E3EC169d2276DDab16f1e407384F",
+    "target_contract": "0xA188EEc8F81263234dA3622A406892F3D630f98c",
+    "amount_wei": "100000000000000000000",
+    "shares_received": "100000000000000000000",
+    "tx_hash": "0x4dda10684ace96256fab7268fc0d38e0512b26b2b34a4fb2778ca41384d8d6b9"
+  },
+  {
+    "timestamp": "2026-04-13T17:55:54Z",
+    "referral_code": 0,
+    "depositor": "0xedf22671919A871470dfF70303c1cE69062DEB60",
+    "token": "0xdC035D45d973E3EC169d2276DDab16f1e407384F",
+    "target_contract": "0xA188EEc8F81263234dA3622A406892F3D630f98c",
+    "amount_wei": "782411048408000000000000",
+    "shares_received": "782411048408000000000000",
+    "tx_hash": "0x90cfc509d71c23ff21795800f38b94527a498d742783e2cda61eff7282f24898"
+  },
+  {
+    "timestamp": "2026-04-13T18:36:31Z",
+    "referral_code": 0,
+    "depositor": "0xB51e492569BAf6C495fDa00F94d4a23ac6c48F12",
+    "token": "0xdC035D45d973E3EC169d2276DDab16f1e407384F",
+    "target_contract": "0xA188EEc8F81263234dA3622A406892F3D630f98c",
+    "amount_wei": "10000000000000000000",
+    "shares_received": "10000000000000000000",
+    "tx_hash": "0x05ad0401d706204717b62150d887451b4ad196b067c0fde73efc3e5280cd7c18"
+  },
+  {
+    "timestamp": "2026-04-14T01:22:54Z",
+    "referral_code": 0,
+    "depositor": "0xAB15f8Ff7439B8a631c638A16C40135850c3d069",
+    "token": "0xdC035D45d973E3EC169d2276DDab16f1e407384F",
+    "target_contract": "0xA188EEc8F81263234dA3622A406892F3D630f98c",
+    "amount_wei": "50057469569000000000000",
+    "shares_received": "50057469569000000000000",
+    "tx_hash": "0xdcb00f61c09ccc3f99a10a166ea837f84c5198436d3e272263d2c77fc87d0adf"
+  },
+  {
+    "timestamp": "2026-04-14T12:24:41Z",
+    "referral_code": 0,
+    "depositor": "0xD1f5fE39d1ee72075bd7176e57D40CD4Edb34939",
+    "token": "0xdC035D45d973E3EC169d2276DDab16f1e407384F",
+    "target_contract": "0xA188EEc8F81263234dA3622A406892F3D630f98c",
+    "amount_wei": "39096787828000000000000",
+    "shares_received": "39096787828000000000000",
+    "tx_hash": "0x00950e39ca7c929d3275d5305d24274f14decfa0437c252cc115c67eadb4e612"
+  },
+  {
+    "timestamp": "2026-04-14T15:41:03Z",
+    "referral_code": 0,
+    "depositor": "0xCFd7d237D49771269b824F3d2CA0F1fF5c663AD3",
+    "token": "0xdC035D45d973E3EC169d2276DDab16f1e407384F",
+    "target_contract": "0xA188EEc8F81263234dA3622A406892F3D630f98c",
+    "amount_wei": "12700000000000000000000",
+    "shares_received": "12700000000000000000000",
+    "tx_hash": "0xae8730aa76cf4ac091389a5b9b4249b3c1b49f3b113337bf8703fb5bf5fc1771"
+  },
+  {
+    "timestamp": "2026-04-14T23:11:20Z",
+    "referral_code": 0,
+    "depositor": "0x912fCA3C8eb80e5BE89a9b4dC9e1bF8B3bD52c05",
+    "token": "0xdC035D45d973E3EC169d2276DDab16f1e407384F",
+    "target_contract": "0xA188EEc8F81263234dA3622A406892F3D630f98c",
+    "amount_wei": "2000000000000000000000",
+    "shares_received": "2000000000000000000000",
+    "tx_hash": "0x5d7d5d838f6001fde0ce8b4b2d69344c8aee531020a2e5ad4d00782c066914e7"
+  }
+]
